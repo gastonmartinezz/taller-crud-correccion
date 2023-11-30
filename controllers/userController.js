@@ -5,7 +5,7 @@ const getUsers = (req, res) => {
 };
 
 const getUserById = (req, res) => {
-  const user = userModel.getUserById(req.params.id);
+  const user = userModel.getUserById(parseInt(req.params.id));
   if (user) {
     res.status(200).json(user);
   } else {
@@ -23,7 +23,7 @@ const createUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-  const updatedUser = userModel.updateUser(req.params.id, req.body);
+  const updatedUser = userModel.updateUser(parseInt(req.params.id), req.body);
   if (updatedUser) {
     res.status(200).json(updatedUser);
   } else {
@@ -32,7 +32,7 @@ const updateUser = (req, res) => {
 };
 
 const deleteUser = (req, res) => {
-  const deletedUser = userModel.deleteUser(req.params.id);
+  const deletedUser = userModel.deleteUser(parseInt(req.params.id));
   if (deletedUser) {
     res.status(200).json(deletedUser);
   } else {
